@@ -25,7 +25,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            BaseViewModel baseViewModel = new BaseViewModel();
+            MainViewModel baseViewModel = new MainViewModel();
             DataContext = baseViewModel;
 
         }

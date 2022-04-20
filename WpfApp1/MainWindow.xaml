@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+        xmlns:viewmodel="clr-namespace:WpfApp1.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
@@ -32,26 +36,20 @@
         <Button Height="23" Command="{Binding FilePickedCommand}"  HorizontalAlignment="Left" Name="btnLoad" VerticalAlignment="Center" Width="75" Grid.Row="0" Grid.Column="1">_Load</Button>
         <Button Content="Unload" Command="{Binding FileUnloadCommand}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="75" Grid.Row="0"  Grid.Column="1" />
 
-        <Button Command="{Binding ReductionCommand}" Content="Reduction" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Grid.Row="1"  Grid.Column="1" />
-        <Button Content="Apply filter" HorizontalAlignment="Right" VerticalAlignment="Center" Width="75" Grid.Row="1"  Grid.Column="1" />
 
-        <CheckBox Content="Parallel" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"  Grid.Column="1" />
-        <ComboBox Grid.Column="1" HorizontalAlignment="Right"  Grid.Row="2" VerticalAlignment="Center" Width="120"/>
+        <CheckBox Content="Parallel" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"  Grid.Column="1" IsChecked="{Binding Parallel}" />
+        <Button Command="{Binding ReductionCommand}" Content="Reduction" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Grid.Row="2"  Grid.Column="1" />
+
 
         <Button Content="Shades of gray" Command="{Binding BlackFadeCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Grid.Row="3"  Grid.Column="1" />
 
-        <Button Content="Negative" HorizontalAlignment="center" VerticalAlignment="Center" Width="150" Grid.Row="4"  Grid.Column="1" />
+        <Button Content="Blur" HorizontalAlignment="center" VerticalAlignment="Center" Width="150" Grid.Row="4"  Grid.Column="1" Command="{Binding BlurCommand}" />
+        <Button Content="Reverse" Command="{Binding FlipCommand}" HorizontalAlignment="center" VerticalAlignment="Center" Width="150" Grid.Row="5"  Grid.Column="1" />
+        <Button Content="Red shades" Command="{Binding RedCommand}" HorizontalAlignment="center" VerticalAlignment="Center" Width="150" Grid.Row="6"  Grid.Column="1" />
+        <Button Content="Green shades" Command="{Binding GreenCommand}" HorizontalAlignment="center" VerticalAlignment="Center" Width="150" Grid.Row="7"  Grid.Column="1" />
+        <Button Content="Blue shades" Command="{Binding BlueCommand}" HorizontalAlignment="center" VerticalAlignment="Center" Width="150" Grid.Row="8"  Grid.Column="1" />
 
-        <RadioButton Content="Half" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Grid.Row="5"  Grid.Column="1" />
-        <TextBlock Grid.Column="1" HorizontalAlignment="Right" Grid.Row="5" Text="Depth" TextWrapping="Wrap" Width="75" VerticalAlignment="Center"/>
-
-        <RadioButton Content="Quarter" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Grid.Row="6"  Grid.Column="1" />
-        <Button Content="Apply" HorizontalAlignment="Right" VerticalAlignment="Center" Width="75" Grid.Row="6"  Grid.Column="1" />
-
-        <RadioButton Content="Eighth" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Grid.Row="7"  Grid.Column="1" />
-
-        <Button Content="Mirror" HorizontalAlignment="center" VerticalAlignment="Center" Width="150" Grid.Row="8"  Grid.Column="1" />
-
-        <Button Content="Reverse" Command="{Binding FlipCommand}" HorizontalAlignment="center" VerticalAlignment="Center" Width="150" Grid.Row="9"  Grid.Column="1" />
+        
+        <Button Content="Reset" Command="{Binding ResetCommand}" HorizontalAlignment="center" VerticalAlignment="Center" Width="150" Grid.Row="9"  Grid.Column="1" />
     </Grid>
 </Window>
